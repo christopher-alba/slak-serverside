@@ -4,7 +4,9 @@
   "description": "A remake of our group project where all heavy lifting is done server side.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose",
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "express-handlebars": "^4.0.0"
   },
   "devDependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.8.0",
     "jest": "^25.2.3",
     "nodemon": "^2.0.2",
