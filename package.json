@@ -1,0 +1,30 @@
+{
+  "name": "slak-serverside",
+  "version": "1.0.0",
+  "description": "A remake of our group project where all heavy lifting is done server side.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christopher-alba/slak-serverside.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christopher-alba/slak-serverside/issues"
+  },
+  "homepage": "https://github.com/christopher-alba/slak-serverside#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "jest": "^25.2.3",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
+  }
+}
