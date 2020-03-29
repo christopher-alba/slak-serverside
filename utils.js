@@ -26,6 +26,7 @@ function compareAnswer (ans, correctAns) {
     return false
 }
 
+// these functions dont work with tests
 function addPoint () {
     console.log("adding point");
     

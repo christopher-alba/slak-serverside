@@ -26,14 +26,40 @@ let board = [
 
 module.exports = {
     board : board,
-    arrangeBoard: arrangeBoard
+    arrangeBoard: arrangeBoard,
+    createPlayerObj: createPlayerObj,
+    addPlayerData: addPlayerData,
+    updateLeaderboard: updateLeaderboard,
+    findPlayer: findPlayer
 }
 
-function arrangeBoard() {
-    
+function arrangeBoard () {
+
     board.sort(function (a, b) {
         return b.score - a.score
     })
 
     return board
+}
+
+function addPlayerData () {
+    board.push(createPlayerObj())
+}
+function createPlayerObj () {
+    return player = new Player()
+}
+
+function Player () {
+    this.name = utils.name
+    this.points = utils.points
+}
+
+function updateLeaderboard ( name ) {
+    arrangeBoard()
+}
+
+function findPlayer ( name ) {
+    return board.find( player => {
+        return player.name === name
+    })
 }

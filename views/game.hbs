@@ -3,5 +3,22 @@
 </div>
 
 <div>
-  {{question}}
+  {{question.question}}
 </div> 
+
+<form action="/game" method="POST">
+  <hr>
+  <label for="buttonA">a:</label>
+  <input type="radio" id="buttonA" name="answer" value={{question.a}}> <br>
+
+  <label for="buttonB">b:</label>
+  <input type="radio" id="buttonB" name="answer" value={{question.b}}> <br>
+
+  <label for="buttonC">c:</label>
+  <input type="radio" id="buttonC" name="answer" value={{question.c}}> <br>
+
+  <label for="buttonD">d:</label>
+  <input type="radio" id="buttonD" name="answer" value={{question.d}}>
+  <br>
+  <button id="nextQ" type="submit">Submit</button>
+</form>
