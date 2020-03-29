@@ -51,10 +51,10 @@ function createPlayerObj () {
 
 function Player () {
     this.name = utils.name
-    this.points = utils.points
+    this.score = utils.points
 }
 
-function updateLeaderboard ( name ) {
+function updateLeaderboard () {
     arrangeBoard()
 }
 

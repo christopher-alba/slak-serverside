@@ -1,1 +1,19 @@
-<a href="/game"><button id="startGame" type="button">Click Here to Start</button></a>
+<form action="/index" method= "POST">
+<label for="name">Please enter your name:</label>
+  <input type="text" name="name">
+  <input type="submit" value="Start Game!">
+</form>
+<br>
+
+<div>
+    {{#each leaderboard}}
+        <div class = "playerContainer">
+            <div>
+                <p>{{this.name}}</p>
+            </div>
+            <div>
+                <p>{{this.score}}</p>
+            </div>
+        </div>
+    {{/each}}
+</div>

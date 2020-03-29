@@ -78,7 +78,7 @@ let questions = [
           a: 'Shen Yue',
           b: 'Asuna',
           c: 'his mum',
-          d: 'Enori',
+          d: 'Inori',
           answer: 'his mum'
       },
     

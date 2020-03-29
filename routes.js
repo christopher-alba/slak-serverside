@@ -8,6 +8,8 @@ const leaderboard = require('./leaderboard')
 
 module.exports = routes
 
+
+
 routes.get('/', (req, res) => {
     res.render('landing')
 })
@@ -15,33 +17,30 @@ routes.get('/', (req, res) => {
 routes.get('/index', (req, res) => {
     let viewData = {
         leaderboard: leaderboard.board
+
     }
+    utils.playerCounter++
+    utils.name = 'Player' + utils.playerCounter
+    utils.points = 0
+    utils.questionCount = 0
     res.render('index', viewData)
 })
 
 routes.post('/index', (req, res) => {
-    utils.name = req.body.name
+    if(req.body.name.length > 0){
+        utils.name = req.body.name
+        
+    }
     res.redirect('/game')
 })
 
-routes.get('/game', (req, res) => {
-
-    if(leaderboard.findPlayer( utils.name ) === undefined){
-        leaderboard.addPlayerData()
-    }
-    else{
-        leaderboard.updateLeaderboard( utils.name )
-    }
-    
+routes.get('/game', (req, res) => {    
 
     let viewData = {
         name: utils.name,
+        score: utils.points,
         question: qAndA.questions[utils.questionCount],
-        leaderboard: leaderboard.board,
-        answerA: qAndA.questions[utils.questionCount].a,
-        answerB: qAndA.questions[utils.questionCount].b,
-        answerC: qAndA.questions[utils.questionCount].c,
-        answerD: qAndA.questions[utils.questionCount].d
+        leaderboard: leaderboard.board
     }
 
     res.render('game', viewData)
@@ -49,9 +48,14 @@ routes.get('/game', (req, res) => {
 
 routes.post('/game', (req, res) => {
     let ans = req.body.answer
+    console.log('req.body.answer log: ' + ans)
     let correctAns = qAndA.questions[utils.questionCount].answer
+    console.log("testing 1");
+    
     if( utils.compareAnswer(ans, correctAns)) {
         utils.points++
+        console.log(utils.points);
+        
     }
 
     if(utils.questionCount < qAndA.maxQuestionIndex){
@@ -60,8 +64,11 @@ routes.post('/game', (req, res) => {
         res.redirect('/game')
     }
     else{
-        
+
+        leaderboard.addPlayerData()
+        leaderboard.updateLeaderboard()
         res.redirect('/index')
+
         
     }    
 })

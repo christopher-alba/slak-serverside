@@ -1,11 +1,13 @@
 let name = 'Player'
 let questionCount = 0
 let points = 0
+let playerCounter = 0
 
 module.exports = {
     name: name,
     questionCount: questionCount,
     points: points,
+    playerCounter: playerCounter,
     compareAnswer: compareAnswer,
     addPoint: addPoint,
     addQuestCount: addQuestCount,
@@ -14,8 +16,8 @@ module.exports = {
 }
 
 function compareAnswer (ans, correctAns) {
-    // console.log('Answer:', ans);
-    // console.log('CorrectAns:', correctAns);
+    console.log('Answer:', ans);
+    console.log('CorrectAns:', correctAns);
     
     if( ans === correctAns ){
         // console.log("answer is correct!");
